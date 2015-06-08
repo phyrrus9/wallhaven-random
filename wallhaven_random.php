@@ -3,7 +3,9 @@
 	 * this script will return a random image from wallhaven.cc
 	 */
 
-	$random_base = "http://alpha.wallhaven.cc/random";
+	$resolutions = isset($_GET['res']) ? $_GET['res'] : "1024x768,1280x800,1366x768";
+	$purity = isset($_GET['purity']) ? $_GET['purity'] : "100";
+	$random_base = "http://alpha.wallhaven.cc/search?purity=$purity&resolutions=$resolutions&sorting=random&order=desc";
 	$regex = "http://alpha.wallhaven.cc/wallpapers/thumb/small/th-%d.jpg"; //followed by a number, then .jpg
 	$full_base = "http://alpha.wallhaven.cc/wallpapers/full/wallhaven-"; //followed by img_number then .jpg
 	$img_ext = ".jpg";
